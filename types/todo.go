@@ -9,3 +9,8 @@ type TodoResponse struct{
 	Title string `json:"title"`
 	Completed bool `json:"completed"`
 }
+
+type TodoUpdateDTO struct{
+		Title string `json:"title" validate:"required"`
+		Completed bool `json:"completed" validate:"required"`
+}

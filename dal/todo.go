@@ -19,3 +19,11 @@ func CreateTodo(todo *Todo) *gorm.DB{
 func GetTodos(dest any)*gorm.DB{
 	return database.DB.Model(&Todo{}).Find(dest)
 }
+
+func GetTodoById(dest any, id any)*gorm.DB{
+	return database.DB.Model(&Todo{}).Where("id = ?", id).First(dest )
+}
+
+func UpdateTodo(id any, data any)*gorm.DB{
+		return database.DB.Model(&Todo{}).Where("id = ?",id).Updates(data)
+}
