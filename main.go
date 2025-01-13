@@ -26,6 +26,7 @@ func main(){
 	app.Get("/todos", services.GetTodos)
 	app.Get("/todos/:todoID",services.GetTodoById)
 	app.Put("/todos/:todoID", services.UpdateTodo)
+	app.Delete("/todos/:todoID", services.DeleteTodo)
  
 	app.Listen("localhost:3000")
 	

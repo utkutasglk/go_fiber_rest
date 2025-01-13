@@ -27,3 +27,7 @@ func GetTodoById(dest any, id any)*gorm.DB{
 func UpdateTodo(id any, data any)*gorm.DB{
 		return database.DB.Model(&Todo{}).Where("id = ?",id).Updates(data)
 }
+
+func DeleteTodo(id any)*gorm.DB{
+	return database.DB.Delete(&Todo{},id)
+}

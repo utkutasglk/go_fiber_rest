@@ -119,7 +119,21 @@ func UpdateTodo(c *fiber.Ctx) error{
 		return c.JSON(fiber.Map{
 			"message":"Todo Updated Successfully",
 		})
+}
 
+func DeleteTodo(c *fiber.Ctx) error{
 
+	todoID := c.Params("todoID")
+
+	res := dal.DeleteTodo(todoID)
+	if res.Error != nil || res.RowsAffected == 0{
+		return c.Status(500).JSON(fiber.Map{
+			"message" : "Failed to delete todo",
+		})
+	}
+
+	return c.JSON(fiber.Map{
+		"message":"todo deleted successfully",
+	})
 
 }
